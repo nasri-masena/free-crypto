@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ultimate Gold Offer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: linear-gradient(135deg, #0f2027, #2c5364, #f5af19, #f12711);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glass-container {
+      background: rgba(10, 25, 47, 0.85);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 20px; /* Space between box and countdown */
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #FFD700;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ddd;
+      margin-bottom: 2rem;
+    }
+
+    @keyframes pulseGold {
+      0% {
+        box-shadow: 0 0 8px rgba(218, 165, 32, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(218, 165, 32, 0.8), 0 0 35px rgba(218, 165, 32, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 8px rgba(218, 165, 32, 0.4);
+      }
+    }
+
+    .btn-gold {
+      display: inline-block;
+      padding: 14px 30px;
+      font-weight: bold;
+      background: #1a1200;
+      color: #FFD700;
+      border: 2px solid #FFD700;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 16px;
+      animation: pulseGold 2s infinite;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    .countdown {
+      position: relative;
+      top: 30px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 0 0 5px rgba(255,215,0,0.6);
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 21px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .btn-gold {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+
+      .countdown {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-container">
+    <h1>🎁 Grab $100 USDT Gift</h1>
+    <p>Complete any simple offer to unlock your $100 USDT code instantly. Don’t miss this chance!</p>
+    <a href="https://singingfiles.com/1827358" class="btn-gold">Quick Claim</a>
+  </div>
+
+  <div class="countdown" id="countdown">Offer expires in: 03:00:00</div>
+
+  <script>
+    // Countdown for 3 hours from now
+    let countDownDate = new Date().getTime() + (3 * 60 * 60 * 1000);
+
+    let countdownFunction = setInterval(function () {
+      let now = new Date().getTime();
+      let distance = countDownDate - now;
+
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      hours = ("0" + hours).slice(-2);
+      minutes = ("0" + minutes).slice(-2);
+      seconds = ("0" + seconds).slice(-2);
+
+      document.getElementById("countdown").innerHTML = `Offer expires in: ${hours}:${minutes}:${seconds}`;
+
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "Offer expired!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
